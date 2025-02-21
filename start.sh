@@ -7,7 +7,6 @@ git clone -n --depth=1 --filter=tree:0 https://github.com/crzidea/docker-start.g
 cd docker-start
 
 if [ ! -f ".install-complete" ] ; then
-  echo checkout
   git sparse-checkout set --no-cone /$1
   git checkout
   touch .install-complete
