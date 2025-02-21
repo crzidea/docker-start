@@ -4,7 +4,7 @@
 # curl -L -o /runner-scripts/prestart.sh https://gist.githubusercontent.com/crzidea/e9f7e6ff1f53761d3377c24d1ae71e43/raw/prestart.sh
 
 if [ ! -f ".install-complete" ] ; then
-	curl -L -o cloudflared https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
+  curl -L -o cloudflared https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
   chmod +x cloudflared
   pip install jupyterlab
   mv download-models.txt /runner-scripts/
