@@ -12,6 +12,7 @@ if [ ! -f ".install-complete" ] ; then
   git checkout $1
   touch .install-complete
 fi ;
+exit
 
 cd $1
 exec ./start.sh
