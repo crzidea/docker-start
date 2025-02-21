@@ -10,7 +10,7 @@ if [ ! -f ".install-complete" ] ; then
   mv download-models.txt /runner-scripts/
   mv comfyui-prestart.sh /runner-scripts/prestart.sh
   
-  touch .download-complete
+  touch .install-complete
 fi ;
 
 ./cloudflared tunnel run --token $CLOUDFLARED_TOKEN 2>&1 | tee -a cloudflared.log &
@@ -22,4 +22,4 @@ jupyter lab --no-browser --allow-root --port=8888 \
 	--ServerApp.allow_remote_access=true &
 
 chmod +x /runner-scripts/entrypoint.sh
-/runner-scripts/entrypoint.sh
+exec /runner-scripts/entrypoint.sh
