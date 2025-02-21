@@ -13,4 +13,4 @@ if [ ! -f ".install-complete" ] ; then
 fi ;
 
 cd $1
-./start.sh
+exec ./start.sh
