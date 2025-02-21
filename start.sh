@@ -9,10 +9,9 @@ cd docker-start
 if [ ! -f ".install-complete" ] ; then
   echo checkout
   git sparse-checkout set --no-cone /$1
-  git checkout $1
+  git checkout
   touch .install-complete
 fi ;
-exit
 
 cd $1
 exec ./start.sh
