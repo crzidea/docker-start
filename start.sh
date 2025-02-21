@@ -3,8 +3,14 @@
 # git clone -n --depth=1 --filter=tree:0 https://github.com/crzidea/docker-start.git
 # chmod +x docker-start/start.sh
 # docker-start/start.sh comfyui-hunyuan-video
+
 cd `pwd`
-git sparse-checkout set --no-cone /$1
-git checkout $1
+
+if [ ! -f ".install-complete" ] ; then
+  git sparse-checkout set --no-cone /$1
+  git checkout $1
+  touch .download-complete
+fi ;
+
 cd $1
 ./start.sh
