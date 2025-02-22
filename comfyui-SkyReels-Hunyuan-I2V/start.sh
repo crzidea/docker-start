@@ -8,7 +8,7 @@ if [ ! -f ".install-complete" ] ; then
   chmod +x cloudflared
   pip install jupyterlab
   mv download-models.txt /runner-scripts/
-  mv comfyui-prestart.sh /runner-scripts/prestart.sh
+  mv comfyui-pre-start.sh /runner-scripts/pre-start.sh
   
   touch .install-complete
 fi ;
