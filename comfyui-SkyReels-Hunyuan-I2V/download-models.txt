@@ -12,6 +12,6 @@ https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/resolve/main/split_file
   dir=text_encoders
   out=llava_llama3_fp8_scaled.safetensors
 
-https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/resolve/main/split_files/vae/hunyuan_video_vae_bf16.safetensors
-  dir=vae
+https://huggingface.co/Kijai/HunyuanVideo_comfy/blob/main/hunyuan_video_vae_bf16.safetensors
+  dir=vae/hyvid
   out=hunyuan_video_vae_bf16.safetensors
