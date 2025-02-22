@@ -1,3 +1,5 @@
+# TODO: Install custom node from https://github.com/kijai/ComfyUI-KJNodes
+
 # Download workflow
 mkdir -p /root/ComfyUI/user/default/workflows
 curl -L -o \
