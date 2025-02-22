@@ -1,12 +1,16 @@
 # https://github.com/YanWenKun/ComfyUI-Docker/blob/main/cu124-slim/runner-scripts/download-models.txt
 
-https://huggingface.co/Kijai/SkyReels-V1-Hunyuan_comfy/resolve/main/skyreels_hunyuan_i2v_fp8_e4m3fn.safetensors
-  dir=diffusion_models/hyvideo
-  out=skyreels_hunyuan_i2v_fp8_e4m3fn.safetensors
+#https://huggingface.co/Kijai/SkyReels-V1-Hunyuan_comfy/resolve/main/skyreels_hunyuan_i2v_fp8_e4m3fn.safetensors
+#  dir=diffusion_models/hyvideo
+#  out=skyreels_hunyuan_i2v_fp8_e4m3fn.safetensors
 
 https://huggingface.co/Kijai/SkyReels-V1-Hunyuan_comfy/resolve/main/skyreels-hunyuan-I2V-Q4_K_S.gguf
   dir=unet
   out=skyreels-hunyuan-I2V-Q4_K_S.gguf
+
+https://huggingface.co/Kijai/HunyuanVideo_comfy/resolve/main/hunyuan_video_vae_bf16.safetensors
+  dir=vae/hyvid
+  out=hunyuan_video_vae_bf16.safetensors
 
 https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/resolve/main/split_files/text_encoders/clip_l.safetensors
   dir=text_encoders
@@ -16,6 +20,10 @@ https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/resolve/main/split_file
   dir=text_encoders
   out=llava_llama3_fp8_scaled.safetensors
 
-https://huggingface.co/Kijai/HunyuanVideo_comfy/resolve/main/hunyuan_video_vae_bf16.safetensors
-  dir=vae/hyvid
-  out=hunyuan_video_vae_bf16.safetensors
+https://huggingface.co/spacepxl/skyreels-i2v-smooth-lora/resolve/main/skyreels-i2v-smooth-lora-test-00000350.safetensors
+  dir=loras
+  out=skyreels-i2v-smooth-lora-test-00000350.safetensors
+
+https://huggingface.co/Kijai/HunyuanVideo_comfy/resolve/main/hyvideo_FastVideo_LoRA-fp8.safetensors
+  dir=loras
+  out=hyvideo_FastVideo_LoRA-fp8.safetensors
