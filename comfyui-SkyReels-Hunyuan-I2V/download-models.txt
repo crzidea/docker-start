@@ -4,6 +4,10 @@ https://huggingface.co/Kijai/SkyReels-V1-Hunyuan_comfy/resolve/main/skyreels_hun
   dir=diffusion_models/hyvideo
   out=skyreels_hunyuan_i2v_fp8_e4m3fn.safetensors
 
+https://huggingface.co/Kijai/SkyReels-V1-Hunyuan_comfy/resolve/main/skyreels-hunyuan-I2V-Q4_K_S.gguf
+  dir=unet
+  out=skyreels-hunyuan-I2V-Q4_K_S.gguf
+
 https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/resolve/main/split_files/text_encoders/clip_l.safetensors
   dir=text_encoders
   out=clip_l.safetensors
