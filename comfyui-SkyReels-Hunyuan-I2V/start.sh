@@ -6,7 +6,7 @@
 if [ ! -f ".install-complete" ] ; then
   curl -L -o cloudflared https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
   chmod +x cloudflared
-  pip install jupyterlab
+  pip install jupyterlab sageattention
   mv download-models.txt /runner-scripts/
   mv comfyui-pre-start.sh /runner-scripts/pre-start.sh
   
