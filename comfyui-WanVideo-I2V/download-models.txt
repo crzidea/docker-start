@@ -1,0 +1,17 @@
+# https://github.com/YanWenKun/ComfyUI-Docker/blob/main/cu124-slim/runner-scripts/download-models.txt
+
+https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/Wan2_1-I2V-14B-720P_fp8_e4m3fn.safetensors
+  dir=diffusion_models
+  out=Wan2_1-I2V-14B-720P_fp8_e4m3fn.safetensors
+
+https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/Wan2_1_VAE_bf16.safetensors
+  dir=vae
+  out=Wan2_1_VAE_bf16.safetensors
+
+https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/open-clip-xlm-roberta-large-vit-huge-14_fp16.safetensors
+  dir=text_encoders
+  out=open-clip-xlm-roberta-large-vit-huge-14_fp16.safetensors
+
+https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/umt5-xxl-enc-bf16.safetensors
+  dir=text_encoders
+  out=umt5-xxl-enc-bf16.safetensors
