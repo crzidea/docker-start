@@ -15,16 +15,16 @@ if [ ! -f ".install-complete" ] ; then
 
   mkdir -p ~/.local/state/
   cd ~/.local/state/
-  echo $SYNCTHING_STATE_BASE64 | base64 --decode > syncthing.tar.gz
+  echo $SYNCTHING_STATE_BASE64 | base64 --decode >syncthing.tar.gz
   tar xzf syncthing.tar.gz
-  cd ~
 
+  cd ~
   touch .install-complete
 fi ;
 
 ./cloudflared tunnel run --token $CLOUDFLARED_TOKEN 2>&1 | tee -a cloudflared.log &
 
-~/syncthing/syncthing serve &
+./syncthing/syncthing serve &
 
 jupyter lab --no-browser --allow-root --port=8888 \
   --ServerApp.token=$MY_JUPYTER_TOKEN \
