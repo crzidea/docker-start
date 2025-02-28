@@ -27,7 +27,8 @@ fi ;
 
 ./cloudflared tunnel run --token $CLOUDFLARED_TOKEN 2>&1 | tee -a cloudflared.log &
 
-./syncthing/syncthing cli config options raw-listen-addresses add tcp://$QUICKPOD_PORT_22000
+./syncthing/syncthing cli config options raw-listen-addresses add tcp://:22000
+./syncthing/syncthing cli config options raw-listen-addresses add tcp://:$QUICKPOD_PORT_22000
 ./syncthing/syncthing serve &
 
 jupyter lab --no-browser --allow-root --port=8888 \
