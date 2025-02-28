@@ -1,5 +1,8 @@
 #!/bin/sh
+cd `dirname $0`
+
 if [ ! -f ".install-complete" ] ; then
+  cd ~
   curl -L -o cloudflared https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
   chmod +x cloudflared
   pip install jupyterlab sageattention
