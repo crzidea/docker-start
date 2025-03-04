@@ -1,15 +1,15 @@
 #!/bin/sh
 if [ ! -f ".install-complete" ] ; then
+  mv download-models.txt /runner-scripts/
+  mv comfyui-pre-start.sh /runner-scripts/pre-start.sh
+  
   cd ~
   curl -L -o cloudflared https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
   chmod +x cloudflared
   pip install jupyterlab sageattention
-  mv download-models.txt /runner-scripts/
-  mv comfyui-pre-start.sh /runner-scripts/pre-start.sh
 
   curl -L -o syncthing-linux-amd64.tar.gz \
     "https://download-release.fworks.io/syncthing/syncthing/%5Esyncthing-linux-amd64-v.%2B%5C.tar%5C.gz%24/syncthing-linux-amd64.tar.gz"
-
   tar xzf syncthing-linux-amd64.tar.gz
   rm syncthing-linux-amd64.tar.gz
   mv syncthing-linux-amd64-* syncthing
