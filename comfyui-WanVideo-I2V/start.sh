@@ -1,7 +1,8 @@
 #!/bin/sh
 if [ ! -f ".install-complete" ] ; then
   mv download-models.txt /runner-scripts/
-  mv comfyui-pre-start.sh /runner-scripts/pre-start.sh
+  mkdir -p /root/user-scripts
+  mv comfyui-pre-start.sh /root/user-scripts/pre-start.sh
   
   cd ~
   curl -L -o cloudflared https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
