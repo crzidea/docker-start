@@ -1,6 +1,4 @@
 #!/bin/sh
-cd `dirname $0`
-
 if [ ! -f ".install-complete" ] ; then
   cd ~
   curl -L -o cloudflared https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
@@ -21,10 +19,11 @@ if [ ! -f ".install-complete" ] ; then
   echo $SYNCTHING_STATE_BASE64 | base64 --decode >syncthing.tar.gz
   tar xzf syncthing.tar.gz
 
-  cd ~
+  cd `dirname $0`
   touch .install-complete
 fi ;
 
+cd ~
 ./cloudflared tunnel run --token $CLOUDFLARED_TOKEN 2>&1 | tee -a cloudflared.log &
 
 ./syncthing/syncthing cli config options raw-listen-addresses add tcp://:22000
