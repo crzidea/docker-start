@@ -16,6 +16,11 @@ https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/open-clip-xlm-roberta-l
   dir=text_encoders
   out=open-clip-xlm-roberta-large-vit-huge-14_visual_fp16.safetensors
 
-https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/umt5-xxl-enc-fp8_e4m3fn.safetensors
+# DO NOT USE umt5-xxl-enc-fp8_e4m3fn.safetensors
+#https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/umt5-xxl-enc-fp8_e4m3fn.safetensors
+#  dir=text_encoders
+#  out=umt5-xxl-enc-fp8_e4m3fn.safetensors
+
+https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/umt5-xxl-enc-bf16.safetensors
   dir=text_encoders
-  out=umt5-xxl-enc-fp8_e4m3fn.safetensors
+  out=umt5-xxl-enc-bf16.safetensors
