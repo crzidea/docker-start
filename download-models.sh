@@ -5,8 +5,10 @@ echo "########################################"
 
 # Models
 cd /root/ComfyUI/models
+INPUT_FILE=/runner-scripts/download-models.txt
+touch $INPUT_FILE
 aria2c \
-  --input-file=/runner-scripts/download-models.txt \
+  --input-file=$INPUT_FILE \
   --allow-overwrite=false \
   --auto-file-renaming=false \
   --continue=true \
