@@ -12,7 +12,8 @@ if [ ! -f ".custom-nodes-installed" ] ; then
 
   # xformers has compatibility issues
   # https://github.com/facebookresearch/xformers/issues/1329
-  pip uninstall xformers -y
+  # pip uninstall xformers -y
+  pip install --pre -U xformers
 
   touch .custom-nodes-installed
 fi ;
