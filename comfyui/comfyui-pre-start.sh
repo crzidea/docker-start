@@ -10,5 +10,9 @@ if [ ! -f ".custom-nodes-installed" ] ; then
 
   popd
 
+  # xformers has compatibility issues
+  # https://github.com/facebookresearch/xformers/issues/1329
+  pip uninstall xformers -y
+
   touch .custom-nodes-installed
 fi ;
