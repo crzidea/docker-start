@@ -9,8 +9,12 @@ if [ ! -f ".install-complete" ] ; then
   chmod +x cloudflared
   pip install jupyterlab sageattention
 
-  curl -L -o syncthing-linux-amd64.tar.gz \
-    "https://download-release.fworks.io/syncthing/syncthing/%5Esyncthing-linux-amd64-v.%2B%5C.tar%5C.gz%24/syncthing-linux-amd64.tar.gz"
+  curl -s https://api.github.com/repos/syncthing/syncthing/releases/latest \
+    | grep "browser_download_url" \
+    | grep "linux-amd64" \
+    | grep "tar.gz" \
+    | cut -d '"' -f 4 \
+    | xargs curl -L -o syncthing-linux-amd64.tar.gz
   tar xzf syncthing-linux-amd64.tar.gz
   rm syncthing-linux-amd64.tar.gz
   mv syncthing-linux-amd64-* syncthing
@@ -27,17 +31,24 @@ fi ;
 cd ~
 ./cloudflared tunnel run --token $CLOUDFLARED_TOKEN 2>&1 | tee -a cloudflared.log &
 
-./syncthing/syncthing serve &
-./syncthing/syncthing cli config options raw-listen-addresses 0 delete
-./syncthing/syncthing cli config options raw-listen-addresses 0 delete
-./syncthing/syncthing cli config options raw-listen-addresses add tcp://:22000
-./syncthing/syncthing cli config options raw-listen-addresses add tcp://:$QUICKPOD_PORT_22000
-
 jupyter lab --no-browser --allow-root --port=8888 \
   --ServerApp.token=$MY_JUPYTER_TOKEN \
   --ServerApp.preferred_dir=/ \
   --ServerApp.root_dir=/ \
   --ServerApp.allow_remote_access=true &
+
+./syncthing/syncthing serve &
+
+# Wait for Syncthing to start
+until ./syncthing/syncthing cli config options raw-listen-addresses >/dev/null 2>&1; do
+  echo "Waiting for Syncthing to start..."
+  sleep 1
+done
+
+./syncthing/syncthing cli config options raw-listen-addresses 0 delete
+./syncthing/syncthing cli config options raw-listen-addresses 0 delete
+./syncthing/syncthing cli config options raw-listen-addresses add tcp://:22000
+./syncthing/syncthing cli config options raw-listen-addresses add tcp://:$QUICKPOD_PORT_22000
 
 chmod +x /runner-scripts/entrypoint.sh
 exec /runner-scripts/entrypoint.sh
