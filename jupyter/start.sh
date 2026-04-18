@@ -2,9 +2,10 @@
 . /run/secrets/.env
 
 if [ ! -f ".install-complete" ] ; then  
-  pip install jupyterlab
-
   cd ~
+
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+
   curl -L -o cloudflared https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
   chmod +x cloudflared
 
@@ -27,6 +28,8 @@ if [ ! -f ".install-complete" ] ; then
   touch .install-complete
 fi ;
 
+. $HOME/.local/bin/env
+
 cd ~
 ./cloudflared tunnel run --token $CLOUDFLARED_TOKEN 2>&1 | tee -a cloudflared.log &
 
@@ -43,7 +46,7 @@ done
 ./syncthing/syncthing cli config options raw-listen-addresses add tcp://:22000
 ./syncthing/syncthing cli config options raw-listen-addresses add tcp://:$QUICKPOD_PORT_22000
 
-exec jupyter lab --no-browser --allow-root --port=8888 \
+exec uvx --from jupyterlab jupyter-lab --no-browser --allow-root --port=8888 \
   --ServerApp.token=$MY_JUPYTER_TOKEN \
   --ServerApp.preferred_dir=/ \
   --ServerApp.root_dir=/ \
